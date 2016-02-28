@@ -16,7 +16,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:text="@string/texto_pregunta" />
+        android:text="@string/texto_pregunta"
+        android:id="@+id/texto_pregunta" />
+
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -26,10 +28,17 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/texto_boton_cierto"/>
+            android:text="@string/texto_boton_cierto"
+            android:id="@+id/boton_cierto"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/texto_boton_falso"/>
+            android:text="@string/texto_boton_falso"
+            android:id="@+id/boton_falso"/>
+        <Button
+            android:id="@+id/boton_siguiente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/texto_boton_siguiente"/>
     </LinearLayout>
 </LinearLayout>
