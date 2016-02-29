@@ -7,20 +7,24 @@ public class Pregunta {
     private int mIdResTexto;
     private boolean mRespuestaVerdadera;
 
-    public Pregunta(int mIdResTexto, boolean mRespuestaVerdadera){
-
-    }
-    public void setmIdResTexto(int mIdResTexto){
+    public Pregunta(int mIdResTexto, boolean mRespuestaVerdadera) {
         this.mIdResTexto = mIdResTexto;
-    }
-    public int getmIdResTexto(){
-        return mIdResTexto;
-    }
-    public void setmRespuestaVerdadera(boolean mRespuestaVerdadera){
         this.mRespuestaVerdadera = mRespuestaVerdadera;
     }
-    public boolean getmRespuestaVerdadera(){
+
+    public int getmIdResTexto() {
+        return mIdResTexto;
+    }
+
+    public void setmIdResTexto(int mIdResTexto) {
+        this.mIdResTexto = mIdResTexto;
+    }
+
+    public boolean ismRespuestaVerdadera() {
         return mRespuestaVerdadera;
     }
 
+    public void setmRespuestaVerdadera(boolean mRespuestaVerdadera) {
+        this.mRespuestaVerdadera = mRespuestaVerdadera;
+    }
 }

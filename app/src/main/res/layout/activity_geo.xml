@@ -16,14 +16,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:text="@string/texto_pregunta"
+        android:text="@string/texto_pregunta_1"
         android:id="@+id/texto_pregunta" />
 
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
             android:layout_width="wrap_content"
@@ -35,10 +35,10 @@
             android:layout_height="wrap_content"
             android:text="@string/texto_boton_falso"
             android:id="@+id/boton_falso"/>
-        <Button
-            android:id="@+id/boton_siguiente"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/texto_boton_siguiente"/>
     </LinearLayout>
+    <Button
+        android:id="@+id/boton_siguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/texto_boton_siguiente"/>
 </LinearLayout>

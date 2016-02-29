@@ -16,6 +16,16 @@ public class GeoActivity extends AppCompatActivity {
     private TextView mTextoPregunta;
     private Button mBotonSiguiente;
 
+    private Pregunta mBancoDePreguntas[] = {
+            new Pregunta(R.string.texto_pregunta, false),
+            new Pregunta(R.string.texto_pregunta_1, false),
+            new Pregunta(R.string.texto_pregunta_2, true),
+            new Pregunta(R.string.texto_pregunta_3, true),
+            new Pregunta(R.string.texto_pregunta_4, true),
+            new Pregunta(R.string.texto_pregunta_5, false)
+    };
+    private int mPreguntaActual = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,28 +41,13 @@ public class GeoActivity extends AppCompatActivity {
             @Override
 
             public void onClick(View v) {
-                Toast.makeText(GeoActivity.this, R.string.texto_correcto, Toast.LENGTH_SHORT)
-                        .show();
-            }
-            private void verificarRespuesta(boolean botonOprimido){
-
+                verificarRespuesta(true);
             }
         });
         mBotonFalso.setOnClickListener (new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(GeoActivity.this, R.string.texto_incorrecto, Toast.LENGTH_SHORT)
-                        .show();
-            }
-            private void verificarRespuesta(boolean botonOprimido){
-
-            }
-        });
-        mTextoPregunta.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(GeoActivity.this, R.string.texto_pregunta, Toast.LENGTH_SHORT)
-                        .show();
+                verificarRespuesta(false);
             }
         });
         mBotonSiguiente.setOnClickListener(new OnClickListener() {
@@ -68,7 +63,7 @@ public class GeoActivity extends AppCompatActivity {
 
     }
     private void verificarRespuesta(boolean botonOprimido) {
-        boolean respuestaEsVerdadera = mBancoDePreguntas[mPreguntaActual].getmRespuestaVerdadera();
+        boolean respuestaEsVerdadera = mBancoDePreguntas[mPreguntaActual].ismRespuestaVerdadera();
         if (botonOprimido == respuestaEsVerdadera) {
                 Toast.makeText(GeoActivity.this, R.string.texto_correcto, Toast.LENGTH_SHORT)
                         .show();
@@ -78,16 +73,6 @@ public class GeoActivity extends AppCompatActivity {
                         .show();
         }
     }
-
-    private Pregunta mBancoDePreguntas[] = {
-            new Pregunta(R.string.texto_pregunta, false),
-            new Pregunta(R.string.texto_pregunta_1, false),
-            new Pregunta(R.string.texto_pregunta_2, true),
-            new Pregunta(R.string.texto_pregunta_3, true),
-            new Pregunta(R.string.texto_pregunta_4, true),
-            new Pregunta(R.string.texto_pregunta_5, false)
-    };
-    private int mPreguntaActual = 0;
 
     private void actualizarPregunta(){
         int preguntaActual = mBancoDePreguntas[mPreguntaActual].getmIdResTexto();
