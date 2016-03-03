@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.isaaccantun.android.model.Pregunta;
 
 public class GeoActivity extends AppCompatActivity {
+    public static final  String KEY_PREGUNTA_ACTUAL = "PreguntaActual";
     private Button mBotonCierto;
     private Button mBotonFalso;
     private TextView mTextoPregunta;
@@ -37,14 +38,14 @@ public class GeoActivity extends AppCompatActivity {
         mBotonSiguiente = (Button) findViewById(R.id.boton_siguiente);
 
 
-        mBotonCierto.setOnClickListener (new OnClickListener(){
+        mBotonCierto.setOnClickListener(new OnClickListener() {
             @Override
 
             public void onClick(View v) {
                 verificarRespuesta(true);
             }
         });
-        mBotonFalso.setOnClickListener (new OnClickListener() {
+        mBotonFalso.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 verificarRespuesta(false);
@@ -57,11 +58,23 @@ public class GeoActivity extends AppCompatActivity {
                 if (mPreguntaActual == mBancoDePreguntas.length) {
                     mPreguntaActual = 0;
                 }
+
                 actualizarPregunta();
             }
         });
 
+        if (savedInstanceState != null){
+            mPreguntaActual = savedInstanceState.getInt(KEY_PREGUNTA_ACTUAL, 0);
+        }
+        actualizarPregunta();
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(KEY_PREGUNTA_ACTUAL, mPreguntaActual);
+    }
+
     private void verificarRespuesta(boolean botonOprimido) {
         boolean respuestaEsVerdadera = mBancoDePreguntas[mPreguntaActual].ismRespuestaVerdadera();
         if (botonOprimido == respuestaEsVerdadera) {
